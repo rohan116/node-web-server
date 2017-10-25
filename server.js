@@ -3,6 +3,7 @@ const path = require('path');
 const hbs = require('hbs');
 var app = express();
 const fs = require('fs');
+const port = process.env.PORT || 3000;
 
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('View Engine','hbs');
@@ -56,10 +57,6 @@ app.get('/about',(request,response) => {
   });
 })
 
-app.get('/index',function(req,res){
-  res.sendFile(path.join(__dirname+'/index.html'));
-  //__dirname : It will resolve to your project folder.
-});
 
 app.get('/about/bad',(request,response) => {
   response.send({
@@ -67,4 +64,4 @@ app.get('/about/bad',(request,response) => {
   });
 })
 
-app.listen(3000);
+app.listen(port);

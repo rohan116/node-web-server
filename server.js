@@ -57,6 +57,12 @@ app.get('/about',(request,response) => {
   });
 })
 
+app.get('/projects',(req,res) => {
+  res.render('projects.hbs',{
+    Page_Title: "Projects Page",
+    Welcome_message : "This is my new Projects page"
+  })
+});
 
 app.get('/about/bad',(request,response) => {
   response.send({
